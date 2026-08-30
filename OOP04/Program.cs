@@ -24,6 +24,27 @@
             //Multiple Abstract Classes: No. C# does not support multiple class inheritance.
             //Multiple Interfaces: Yes. A single class can implement multiple interfaces at the same time.
             #endregion
+            #region Main Execution
+            StandardShipment standard = new StandardShipment("SH001", "Cairo", 10.0m, 100.0m, 10, new DeliveryAddress());
+            ExpressShipment express = new ExpressShipment("SH002", "Alexandria", 5.0m, 200.0m, 50.0m, new DeliveryAddress());
+            InternationalShipment international = new InternationalShipment("SH003", "Giza", 8.0m, 300.0m, "USA", 15.0m, new DeliveryAddress());
+
+            DeliveryCenter center = new DeliveryCenter();
+            center.AddShipment(standard);
+            center.AddShipment(express);
+            center.AddShipment(international);
+
+            Console.WriteLine("=== All Shipment Details ===");
+            standard.PrintShipment();
+            express.PrintShipment();
+            international.PrintShipment();
+
+            center.PrintTrackingStatuses();
+            Console.WriteLine("\n=== Insurance Costs ===");
+            DeliveryReport.PrintInsurance(standard);
+            DeliveryReport.PrintInsurance(express);
+            DeliveryReport.PrintInsurance(international);
+            #endregion
 
         }
     }

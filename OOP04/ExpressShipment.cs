@@ -6,41 +6,42 @@ namespace OOP04
 {
     #region Question 05
     internal class ExpressShipment : Shipment, ITrackable, IInsurable
-
+    {
 
         private decimal express;
 
-    public ExpressShipment(string trackingCode, string description, decimal weight, decimal deliveryFee, decimal express, DeliveryAddress destination)
-        : base(trackingCode, description, weight, deliveryFee, destination)
-    {
-        this.express = express;
-    }
-
-    public override decimal EstimatedCost
-    {
-        get
+        public ExpressShipment(string trackingCode, string description, decimal weight, decimal deliveryFee, decimal express, DeliveryAddress destination)
+            : base(trackingCode, description, weight, deliveryFee, destination)
         {
-            return DeliveryFee + express;
+            this.express = express;
         }
-    }
 
-    public override void PrintShipment()
-    {
-        base.PrintShipment();
-        Console.WriteLine($"Tracking Code: {TrackingCode}, Cost: {EstimatedCost}");
-        Console.WriteLine($"Extra Fee: {express}");
-    }
+        public override decimal EstimatedCost
+        {
+            get
+            {
+                return DeliveryFee + express;
+            }
+        }
 
-    public string GetTrackingStatus()
-    {
-        return $"Shipment {TrackingCode} is currently in transit.";
-    }
+        public override void PrintShipment()
+        {
+            base.PrintShipment();
+            Console.WriteLine($"Tracking Code: {TrackingCode}, Cost: {EstimatedCost}");
+            Console.WriteLine($"Extra Fee: {express}");
+        }
 
-    public decimal CalculateInsurance()
-    {
-        return EstimatedCost * 0.08m;
+        public string GetTrackingStatus()
+        {
+            return $"Shipment {TrackingCode} is currently in transit.";
+        }
+
+        public decimal CalculateInsurance()
+        {
+            return EstimatedCost * 0.08m;
+        }
     }
 }
     #endregion
-    
+
 
