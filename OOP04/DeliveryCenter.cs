@@ -57,13 +57,21 @@ namespace OOP04
 
         public void PrintCalculateInsurance()
         {
-            foreach (IInsurable I in Shipments)
+            foreach (var s in Shipments)
             {
-                if (I != null)
-                    Console.WriteLine(I.CalculateInsurance());
+                if (s is IInsurable insurable)
+                {
+                    string name = s.GetType().Name;
+                    if (name == "StandardShipment") name = "Standard Shipment";
+                    else if (name == "ExpressShipment") name = "Express Shipment";
+                    else if (name == "InternationalShipment") name = "International Shipment";
+
+                    Console.WriteLine($"{name} Insurance : {insurable.CalculateInsurance():F2} EGP");
+                    Console.WriteLine();
+                }
             }
         }
-    }
     #endregion
 
+    }
 }

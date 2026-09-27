@@ -26,10 +26,15 @@ namespace OOP04
 
         public override void PrintShipment()
         {
-            base.PrintShipment();
-            Console.WriteLine($"Tracking Code: {TrackingCode}, Cost: {EstimatedCost}");
-            Console.WriteLine($"Extra Fee: {express}");
-        }
+            Console.WriteLine("Express Shipment");
+            Console.WriteLine();
+            Console.WriteLine($"Tracking Code : {TrackingCode}");
+            Console.WriteLine($"Extra Fee     : {express} EGP");
+            Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
+            Console.WriteLine();
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine();
+                }
 
         public string GetTrackingStatus()
         {

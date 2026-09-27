@@ -9,12 +9,18 @@ namespace OOP04
     {
         public static void PrintShipment(ITrackable shipment)
         {
-            Console.WriteLine(shipment.GetTrackingStatus());
+            if (shipment != null)
+            {
+                Console.WriteLine(shipment.GetTrackingStatus());
+            }
         }
 
         public static void PrintInsurance(IInsurable shipment)
         {
-            Console.WriteLine(shipment.CalculateInsurance());
+            if (shipment != null)
+            {
+                Console.WriteLine($"{shipment.GetType().Name.Replace("Shipment", " Shipment")} Insurance : {shipment.CalculateInsurance():F2} EGP");
+            }
         }
     }
     #endregion

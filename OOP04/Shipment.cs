@@ -24,11 +24,8 @@ namespace OOP04
 
         public abstract decimal EstimatedCost { get; }
 
-        public virtual void PrintShipment()
-        {
-            Console.WriteLine($"Tracking Code: {TrackingCode}, Description: {Description}, Weight: {Weight}, Delivery Fee: {DeliveryFee}, Estimated Cost: {EstimatedCost}, Destination: {Destination.GetFullAddress()}");
-        }
+        public abstract void PrintShipment();
+       }
     }
     #endregion
 
-}

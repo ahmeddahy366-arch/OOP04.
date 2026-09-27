@@ -7,13 +7,16 @@ namespace OOP04
     #region Question 05
     internal class StandardShipment : Shipment, ITrackable, IInsurable
     {
+
         public StandardShipment(string trackingCode, string description, decimal weight, decimal deliveryFee, decimal extraFee, DeliveryAddress destination)
             : base(trackingCode, description, weight, deliveryFee, destination)
         {
         }
 
-        public override decimal EstimatedCost => DeliveryFee + 10;
-
+        public override decimal EstimatedCost
+        {
+            get { return DeliveryFee; }
+        }
         public string GetTrackingStatus()
         {
             return $"Shipment {TrackingCode} is currently in transit.";
@@ -26,8 +29,15 @@ namespace OOP04
 
         public override void PrintShipment()
         {
-            base.PrintShipment();
-            Console.WriteLine($"[Standard Shipment] Code: {TrackingCode}, Description: {Description}, Cost: {EstimatedCost}");
+            Console.WriteLine("Standard Shipment");
+            Console.WriteLine();
+            Console.WriteLine($"Tracking Code : {TrackingCode}");
+            Console.WriteLine($"Description   : {Description}");
+            Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
+            Console.WriteLine();
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine();
+         
         }
     }
     #endregion

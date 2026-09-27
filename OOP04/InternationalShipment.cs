@@ -24,16 +24,15 @@ namespace OOP04
 
         public override void PrintShipment()
         {
-            base.PrintShipment();
-            Console.WriteLine($"Tracking Code: {TrackingCode}, Cost: {EstimatedCost}");
-            Console.WriteLine($"Destination Country: {destinationCountry}");
-            Console.WriteLine($"Customs Fee: {customsFee}");
+            Console.WriteLine("International Shipment");
+            Console.WriteLine();
+            Console.WriteLine($"Tracking Code        : {TrackingCode}");
+            Console.WriteLine($"Destination Country  : {destinationCountry}");
+            Console.WriteLine($"Estimated Cost       : {EstimatedCost} EGP");
+            Console.WriteLine();
         }
 
-        public virtual void GenerateCustomsReport()
-        {
-            Console.WriteLine("Generating Customs Report...");
-        }
+  
 
         public string GetTrackingStatus()
         {
